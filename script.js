@@ -1,10 +1,38 @@
-function ajoutDepense(){
-    let description = document.getElementById("description").value;     //stockage de l'input description dans une variable
-    let montant = document.getElementById("montant").value;     //idem pour montant
+let totalGeneral = 0;
 
-    const p = document.createElement("p");
-    p.innerText = description + " : " + montant + " €";
+function ajoutDepense() {
+    let description = document.getElementById("description").value;
+    let montant = document.getElementById("montant").value;
+    let montantNombre = parseFloat(montant);
 
-    document.getElementById("depense").appendChild(p);
+    const tr = document.createElement("tr");
+    const tdDescription = document.createElement("td");
+    const tdMontant = document.createElement("td");
+    const tdTotal = document.createElement("td");
+    const tdAction = document.createElement("td");
+
+    tdDescription.innerText = description;
+    tdMontant.innerText = montant + " €"; 
+    tdTotal.innerText = "..."; 
+
+    const btnSupprimer = document.createElement("button");
+    btnSupprimer.innerText = "Supprimer";
+
+    btnSupprimer.onclick = function () {
+        tr.remove();
+        toutRecalculer();
+    };
+
+    tdAction.appendChild(btnSupprimer);
+    tr.appendChild(tdDescription);
+    tr.appendChild(tdMontant);
+    tr.appendChild(tdTotal);
+    tr.appendChild(tdAction);
+
+    document.getElementById("depense").appendChild(tr);
+
+    toutRecalculer();
+
+    document.getElementById("description").value = "";
+    document.getElementById("montant").value = "";
 }
-

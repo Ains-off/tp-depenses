@@ -1,33 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Dépenses</title>
 </head>
 <body>
-        <label for="description">Description:</label>
-        <input type="text" id="description" name="description">
-        <br>
-        <label for="montant">Montant:</label>
-        <input type="number" id="montant" name="montant">
+    <h2>Ajouter une dépense</h2>
 
-        <button type="button" onclick="ajoutDepense()">Ajouter la Dépense</button>
+    <!--Champs pour ajouter une dépense et sa description-->
 
-    <p id="depense"></p>
+    <label for="description">Description :</label>
+    <input type="text" id="description" name="description">
+    <br>
+    <label for="montant">Montant :</label>
+    <input type="number" id="montant" name="montant">
+    <br>
+    <button type="button" onclick="ajoutDepense()">Ajouter la Dépense</button>
 
+  <!--Tableau contenant les montants et leur description-->
 
-    <table>
+    <h2>Liste des dépenses</h2>
+    <table border="2">
         <thead>
             <tr>
                 <th>Description</th>
                 <th>Montant</th>
+                <th>Total Cumulé</th> <th>Action</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody id="depense">
+            </tbody>
+    </table>
 
-        </tbody>
-      </table>
+    <script src="script.js"></script>
 </body>
-<script src="script.js"></script>
 </html>
