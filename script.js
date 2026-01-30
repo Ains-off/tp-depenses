@@ -36,3 +36,25 @@ function ajoutDepense() {
     document.getElementById("description").value = "";
     document.getElementById("montant").value = "";
 }
+function toutRecalculer() {
+    let compteurTemporaire = 0;
+    
+    let tableau = document.getElementById("depense");
+    let lesLignes = tableau.getElementsByTagName("tr");
+
+    for (let i = 0; i < lesLignes.length; i++) {
+        let celluleMontant = lesLignes[i].getElementsByTagName("td")[1];
+        
+        let texte = celluleMontant.innerText;
+        
+        let chiffreTexte = texte.replace(" €", "");
+        let leNombre = parseFloat(chiffreTexte);
+
+        compteurTemporaire = compteurTemporaire + leNombre;
+
+        let celluleTotal = lesLignes[i].getElementsByTagName("td")[2];
+        celluleTotal.innerText = compteurTemporaire + " €";
+    }
+
+    totalGeneral = compteurTemporaire;
+}
